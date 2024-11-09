@@ -53,4 +53,18 @@ export class AppController {
     };
   }
 
+  @Get("assignment-3-factorial-calculator/:number")
+  getFactorial(@Param('number') number: string): { factorial: number } {
+    let num = parseInt(number);
+    let count = 1;
+
+    for (let i = num; i >= 1; i--) {
+      count *= i;
+    }
+
+    return { 
+      factorial : count 
+    };
+  }
+
 }
