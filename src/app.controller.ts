@@ -24,4 +24,33 @@ export class AppController {
     };
   }
 
+  @Get("assignment-2-prime-number/:number")
+  getPrimeNumber(@Param('number') number: string): { isPrime: boolean } {
+    const num = parseInt(number);
+
+    if (isNaN(num)) {
+      return { 
+        isPrime: false 
+      };
+    }
+
+    if (num <= 1) {
+      return { 
+        isPrime: false 
+      };
+    }
+
+    for (let i = 2; i < Math.floor(num); i++) {
+      if (num % i === 0) {
+        return { 
+          isPrime: false 
+        };
+      }
+    }
+
+    return { 
+      isPrime: true 
+    };
+  }
+
 }
